@@ -82,7 +82,7 @@ async function loadOrders() {
                 <td><img src="${productImage}" alt="${productName}" style="width: 100px;"></td>
                 <td>${quantity}</td>
                 <td>${paymentType}</td> <!-- Display payment type -->
-                <td>$${totalAmount.toFixed(2)}</td>
+                <td>₹${totalAmount.toFixed(2)}</td>
                 <td class="order-date">${orderDate.toLocaleString()}</td>
             `;
 
