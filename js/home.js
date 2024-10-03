@@ -391,7 +391,7 @@ function createProductCard(product) {
     title.textContent = product.title.stringValue;
 
     const price = document.createElement('p');
-    price.textContent = `Price: $${product.price.doubleValue.toFixed(2)}`;
+    price.textContent = `Price: ₹${product.price.doubleValue.toFixed(2)}`;
 
     const stock = document.createElement('p');
     stock.textContent = `Stock: ${product.quantity.integerValue}`;
