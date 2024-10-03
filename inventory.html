@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="js/inventory.js" defer></script>
+    <script type="module" src="js/admin.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <h1>Admin Panel</h1>
+            <ul id="nav-links">
+                
+                
+                <li><a href="users.html"><i class="fas fa-box"></i>Customers</a></li>
+                <li><a href="report.html"><i class="fas fa-box"></i>Reports</a></li>
+                <li><a href="inventoryReport.html"><i class="fas fa-box"></i>IReports</a></li>
+                <li><a href="salesReport.html"><i class="fas fa-box"></i>SReports</a></li>
+                
+                <li><a href="index.html" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="controls">
+            <div class="search-container">
+                <input type="text" placeholder="Search products..." id="search-input">
+                <button id="search-button"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="toggle-button">
+                <label for="category-toggle">Select Category:</label>
+                <select id="category-toggle">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="pagination-controls">
+            <label for="rows-per-page">Rows per page:</label>
+            <input type="number" id="rows-per-page" min="1" max="20" value="10">
+            <button id="ok-button">OK</button>
+        </section>
+
+        <section class="inventory-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Category Name</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Status</th> <!-- New Status column -->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="inventory-table-body">
+                    <!-- Products will be dynamically injected here -->
+                </tbody>
+            </table>
+        </section>
+
+        <div id="pagination-controls">
+            <button id="prev-button" disabled>Previous</button>
+            <button id="next-button" disabled>Next</button>
+            <span id="page-indicator">Page 1</span>
+        </div>
+        
+        
+
+        <section id="categories" class="admin-section">
+            <h2>Category Management</h2>
+            <button id="create-category">Create New Category</button>
+            <div id="category-list"></div>
+        </section>
+
+        <section id="inventory" class="admin-section">
+            <h2>Inventory Management</h2>
+            <button id="create-inventory">Add New Inventory Item</button>
+            <div id="inventory-list"></div>
+        </section>
+    </main>
+
+    <!-- Inventory Modal Form -->
+<div id="inventory-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-inventory-btn">&times;</span>
+        <h2>Add Inventory Item</h2>
+        <form id="inventory-form" enctype="multipart/form-data">
+            <label for="inventory-title">Title:</label>
+            <input type="text" id="inventory-title" name="inventory-title" required>
+            
+            <label for="inventory-description">Description:</label>
+            <textarea id="inventory-description" name="inventory-description" required></textarea>
+            
+            <label for="inventory-quantity">Quantity:</label>
+            <input type="number" id="inventory-quantity" name="inventory-quantity" required>
+            
+            <label for="inventory-price">Price:</label>
+            <input type="number" id="inventory-price" name="inventory-price" required>
+            
+            <label for="inventory-category">Category:</label>
+            <select id="inventory-category" name="inventory-category" required>
+                <!-- Categories will be populated here -->
+            </select>
+            
+            <label for="inventory-image">Image:</label>
+            <input type="file" id="inventory-image" name="inventory-image" accept="image/*" required>
+
+            <label for="inventory-status">Status:</label>
+            <select id="inventory-status" name="inventory-status" required>
+                <option value="Available">Available</option>
+                <option value="Out of Stock">Out of Stock</option>
+            </select>
+            
+            <button type="submit">Add Inventory Item</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Category Modal Form -->
+<div id="category-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Add Category</h2>
+        <form id="category-form">
+            <label for="category-name">Category Name:</label>
+            <input type="text" id="category-name" name="category-name" required>
+            <button type="submit">Add Category</button>
+        </form>
+    </div>
+</div>
+
+<!-- Edit Product Modal -->
+<div id="edit-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-edit-modal">&times;</span>
+        <h2>Edit Product</h2>
+        <form id="edit-product-form">
+            <input type="hidden" id="edit-inventory-id" />
+            <label for="edit-title">Title:</label>
+            <input type="text" id="edit-title" required />
+            <label for="edit-description">Description:</label>
+            <input type="text" id="edit-description" required />
+            <label for="edit-quantity">Quantity:</label>
+            <input type="number" id="edit-quantity" required />
+            <label for="edit-price">Price:</label>
+            <input type="number" id="edit-price" required />
+            <label for="edit-image">Image URL:</label>
+            <input type="text" id="edit-image" required />
+            
+            <!-- Category Dropdown -->
+            <label for="edit-category">Category:</label>
+            <select id="edit-cat-id">
+                <option value="">Select Category</option>
+                <!-- Options will be populated dynamically -->
+            </select>
+
+            <!-- Status Dropdown -->
+            <label for="edit-status">Status:</label>
+            <select id="edit-status" required>
+                <option value="Available">Available</option>
+                <option value="Out of Stock">Out of Stock</option>
+            </select>
+
+            <button type="submit">Update Product</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+    
+  
+
+
+</body>
+</html>

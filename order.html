@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annachi Kadai - My Orders</title>
+    <link rel="stylesheet" href="css/order.css">
+    <script defer src="js/order.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="homepage.html">Annachi Kadai</a>
+        </div>
+        <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="cart.html">My Cart</a>
+            <a href="orders.html">My Orders</a>
+            <span id="username"></span>
+            <span id="credits"></span>
+            <button id="logout-btn" class="logout">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="homepage.html" class="btn-back">Back to Home</a>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="orders-container">
+        <h2>My Orders</h2>
+        <!-- Total Amount Spent Display -->
+<div id="total-spent">
+    <strong>Total Amount Spent: $0.00</strong>
+</div>
+ <!-- This will show the total amount spent -->
+        <table id="orders-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Payment Type</th>
+                    <th>Total Amount</th>
+                    <th>Order Date & Time</th>
+                </tr>
+            </thead>
+            <tbody id="orders-items-body">
+                <!-- Orders will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

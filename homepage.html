@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annachi Kadai - Homepage</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-content">
+            <h1 class="shop-name">Annachi Kadai</h1>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search products..." />
+                <button id="search-button">Search</button>
+                <select id="category-select">
+                    <option value="">All Categories</option> <!-- This option will show all products -->
+                    <!-- Categories will be dynamically populated here -->
+                </select>
+            </div>
+            <div class="nav-links">
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> My Cart</a>
+                <a href="order.html"><i class="fas fa-box"></i> My Orders</a>
+            </div>
+            <div class="user-info">
+                <span id="user-username"></span>
+                <span id="user-credits"></span>
+            </div>
+            <a class="btn-logout" href="index.html" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
+
+    <div id="cart-message" class="cart-message hidden"></div>
+
+    <div class="product-section">
+        <h2>The best deals are waiting for you, explore now!</h2>
+        <div id="product-container" class="product-container"></div>
+    </div>
+
+    <script src="js/home.js" type="module"></script>
+</body>
+
+</html>

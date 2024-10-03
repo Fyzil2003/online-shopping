@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reports</title>
+    <link rel="stylesheet" href="css/report.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="js/inventory.js" defer></script>
+    <script type="module" src="js/admin.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <h1>Admin Panel</h1>
+            <ul id="nav-links">
+                
+                <li><a href="inventory.html"><i class="fas fa-box"></i> Inventory</a></li>
+                <li><a href="users.html"><i class="fas fa-box"></i>Customers</a></li>
+                
+                <li><a href="index.html" id="logout-button"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Generate Customer Reports</h1>
+        <div class="toggle-container">
+            <label class="report-toggle">
+                <input type="checkbox" id="allUsers">
+                All Users
+            </label>
+            <label class="report-toggle">
+                <input type="checkbox" id="topUsers">
+                Top 10 Users
+            </label>
+            <label class="report-toggle">
+                <input type="checkbox" id="cashPurchase">
+                Cash Purchase Reports
+            </label>
+            <label class="report-toggle">
+                <input type="checkbox" id="creditPurchase">
+                Credit Purchase Reports
+            </label>
+        </div>
+        <div class="date-range-container" style="display: none;">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate">
+        </div>
+        <div class="cash-date-range-container" style="display: none;">
+            <label for="cashStartDate">Cash Start Date:</label>
+            <input type="date" id="cashStartDate">
+            <label for="cashEndDate">Cash End Date:</label>
+            <input type="date" id="cashEndDate">
+        </div>
+        <div class="credit-date-range-container" style="display: none;">
+            <label for="creditStartDate">Credit Start Date:</label>
+            <input type="date" id="creditStartDate">
+            <label for="creditEndDate">Credit End Date:</label>
+            <input type="date" id="creditEndDate">
+        </div>
+        <button id="submitBtn" class="submit-btn">Submit</button>
+    </div>
+
+    <script src="js/report.js"></script>
+    <script>
+        // Show date range input only when "Top 10 Users" is selected
+        document.getElementById('topUsers').addEventListener('change', function () {
+            const dateRangeContainer = document.querySelector('.date-range-container');
+            dateRangeContainer.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Show cash date range only when "Cash Purchase Reports" is selected
+        document.getElementById('cashPurchase').addEventListener('change', function () {
+            const cashDateRangeContainer = document.querySelector('.cash-date-range-container');
+            cashDateRangeContainer.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Show credit date range only when "Credit Purchase Reports" is selected
+        document.getElementById('creditPurchase').addEventListener('change', function () {
+            const creditDateRangeContainer = document.querySelector('.credit-date-range-container');
+            creditDateRangeContainer.style.display = this.checked ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>

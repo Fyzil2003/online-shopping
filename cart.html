@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annachi Kadai - Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+    <script defer src="js/cart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="homepage.html">Annachi Kadai</a>
+        </div>
+        <div class="nav-links">
+            <a href="homepage.html">Home</a>
+            <a href="cart.html">My Cart</a>
+            <a href="order.html">My Orders</a>
+            <span id="username"></span>
+            <span id="credits"></span>
+            <button id="logout-btn" class="logout">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Back Button -->
+    <div class="back-button">
+        <a href="homepage.html" class="btn-back">Back to Home</a>
+    </div>
+
+    <!-- Cart Table -->
+    <div class="cart-container">
+        <h2>My Cart</h2>
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Amount</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items-body">
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

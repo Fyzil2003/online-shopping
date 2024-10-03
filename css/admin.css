@@ -1,0 +1,112 @@
+/* Basic styles for admin dashboard */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #007BFF;
+    padding: 15px 20px;
+    color: white;
+}
+
+/* Styling for the Admin Navbar */
+#admin-navbar {
+    display: flex;
+    justify-content: space-between; /* Space between left and right containers */
+    align-items: center;
+}
+
+#admin-navbar h1 {
+    margin: 0;
+}
+
+#admin-navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#admin-navbar ul li {
+    margin-left: 20px;
+}
+
+#admin-navbar ul li a, 
+#username-display {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* General button styles */
+button {
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.admin-section {
+    margin: 20px;
+}
+
+/* Styling for Pagination */
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Style for the form */
+#category-form {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+#category-form input {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Category Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+}

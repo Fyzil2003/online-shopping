@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Report</title>
+    <style>
+        /* Add any necessary styles */
+        .category-input-container {
+            display: none; /* Initially hidden */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Inventory Report</h1>
+    <label>
+        <input type="radio" name="reportType" id="allStock" checked>
+        View All Stock
+    </label>
+    <label>
+        <input type="radio" name="reportType" id="categoryWiseStock">
+        Category Wise Stock
+    </label>
+    <div class="category-input-container">
+        <label for="categoryInput">Select Category:</label>
+        <select id="categoryInput">
+            <!-- Categories will be populated here -->
+        </select>
+    </div>
+    <button id="submitBtn">Generate CSV</button>
+
+    <script src="js/inventoryReport.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(90deg, #007BFF, #FF007B);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.5s ease;
+}
+
+.form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.form.hidden {
+    display: none;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #007BFF;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.message {
+    margin-top: 10px;
+    color: green;
+    text-align: center;
+}
+
+.error {
+    margin-top: 10px;
+    color: red;
+    text-align: center;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Light Mode Styles */
+body.light {
+    background: linear-gradient(90deg, #FFD700, #FF6347);
+}
+
+.form.light {
+    background: white;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background: #333;
+    color: #f0f0f0;
+}
+
+.form.dark {
+    background: #444;
+    border: 1px solid #666;
+}
+
+.error.dark, .message.dark {
+    color: #f0f0f0;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <link rel="stylesheet" href="css/salesReport.css">
+</head>
+<body>
+    <h1>Generate Sales Report</h1>
+
+    <div class="report-options">
+        <label for="fromDate">From Date:</label>
+        <input type="date" id="fromDate" required>
+        
+        <label for="toDate">To Date:</label>
+        <input type="date" id="toDate" required>
+        
+        <label>Report Type:</label>
+        <select id="reportType">
+            <option value="all">All Sales</option>
+            <option value="categoryWise">Category Wise</option>
+            <option value="cashWise">Cash Sales</option>
+            <option value="creditWise">Credit Sales</option>
+            <option value="topSelling">Top 10 Selling Items</option>
+            <option value="bottomSelling">Bottom 10 Selling Items</option>
+        </select>
+        
+        <!-- Category selection, shown only when category-wise report is selected -->
+        <div id="categoryToggle" style="display: none;">
+            <label for="category">Select Category:</label>
+            <select id="category"></select>
+        </div>
+
+        <button id="generateReportBtn">Generate CSV</button>
+    </div>
+
+    <script src="js/salesReport.js"></script>
+</body>
+</html>
