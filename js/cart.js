@@ -58,8 +58,8 @@ async function loadCartItems(userId) {
                     <td>${productDetails.name}</td>
                     <td><img src="${productDetails.image}" alt="${productDetails.name}" class="product-image"></td>
                     <td>${quantity}</td>
-                    <td>${price.toFixed(2)} ₹</td>
-                    <td>${totalAmount.toFixed(2)} ₹</td>
+                    <td>₹${price.toFixed(2)} </td>
+                    <td>₹${totalAmount.toFixed(2)} </td>
                     <td><button class="remove-btn" data-product-id="${productId}">Remove</button></td>
                 `;
 
